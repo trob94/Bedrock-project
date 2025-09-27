@@ -1,1 +1,14 @@
+Create a friendly welcome email for a new student.
 
+Student Details:
+- Name: {name}
+- Course: {course}
+- Start Date: {date}
+
+Write a warm, encouraging email that:
+1. Welcomes them to the course and thanks them for taking the course
+2. Explains what they'll learn and how
+3. Gives 3 tips for success and 3 common mistakes people make with the course
+4. Ends with encouragement and positivity
+
+Format the output as clean HTML with proper headings and paragraphs.
