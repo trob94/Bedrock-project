@@ -1,1 +1,19 @@
-
+{
+    "template": "welcome.txt",
+    "output_format": "html",
+    "max_tokens": 1000,
+    "variable_sets": [
+        {
+            "name": "Sarah",
+            "course": "Python Programming",
+            "date": "January 15, 2025",
+            "output_name": "welcome_sarah"
+        },
+        {
+            "name": "Tyler",
+            "course": "Data Science",
+            "date": "January 20, 2025",
+            "output_name": "welcome_tyler"
+        }
+    ]
+}
