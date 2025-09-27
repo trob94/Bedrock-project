@@ -1,3 +1,4 @@
+Output the following email as HTML only. Do not include any introduction or explanation.
 
 Student Details:
 - Name: {name}
