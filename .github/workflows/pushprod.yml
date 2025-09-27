@@ -1,1 +1,34 @@
+name: Production Deployment
 
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy-prod:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+    
+    - name: Run processor
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_REGION: ${{ secrets.AWS_REGION }}
+        S3_BUCKET_PROD: ${{ secrets.S3_BUCKET_PROD }}
+      run: python process.py prod
+    
+    - name: Summary
+      run: |
+        echo "## Production Deployment Complete" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "View at: https://${{ secrets.S3_BUCKET_PROD }}.s3-website-${{ secrets.AWS_REGION }}.amazonaws.com/" >> $GITHUB_STEP_SUMMARY
