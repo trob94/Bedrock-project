@@ -1,4 +1,3 @@
-Create a friendly welcome email for a new student.
 
 Student Details:
 - Name: {name}
